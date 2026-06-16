@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+build/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Python backend
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# TLS secrets — never commit private keys or certs
+*.pem
+*.key
+*.crt

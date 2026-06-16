@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local TLS material — ignore keys/certs but keep generate_cert.sh
+*.pem
+*.key
+*.crt
+
+# Env / secrets
+.env
