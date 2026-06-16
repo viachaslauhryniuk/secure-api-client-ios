@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  secureAPIClient
-//
-//  Created by Слава Гринюк on 7.06.26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var session = SessionViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        switch session.state {
+        case .loggedOut:
+            LoginView { username, password in
+                await session.login(username: username, password: password)
+            }
+        case .loggedIn(let username):
+            ProfileView(username: username) {
+                session.logout()
+            }
         }
-        .padding()
     }
 }
-
