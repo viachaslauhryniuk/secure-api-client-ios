@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ProfileView: View {
     let username: String
+    let secureActionStatus: String?
+    var onSecureAction: () -> Void
     var onLogout: () -> Void
 
     var body: some View {
@@ -21,6 +23,16 @@ struct ProfileView: View {
 
             Spacer()
 
+            VStack(spacing: 8) {
+                Button("Do secure action", action: onSecureAction)
+                    .buttonStyle(.bordered)
+                if let secureActionStatus {
+                    Text(secureActionStatus)
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                }
+            }
+
             Button("Log Out", role: .destructive, action: onLogout)
                 .buttonStyle(.bordered)
                 .controlSize(.large)
@@ -28,4 +40,3 @@ struct ProfileView: View {
         .padding(24)
     }
 }
-
